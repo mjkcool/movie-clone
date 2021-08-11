@@ -27,9 +27,6 @@ app.get('/', (req, res) => {
   res.send('반가워요')
 })
 
-app.get('/api/hello', (req, res) => {
-  res.send("안녕하세요 백엔드 API")
-})
 
 app.post('/api/users/register', (req, res) => {
   //회원가입 시 필요한 정보들을 client에서 가져오면 그것들을 DB에 넣어준다.

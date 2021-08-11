@@ -39,9 +39,9 @@ function RegisterPage(props) {
     const onSubmitHandler = () => {
         // event.preventDefault()
 
-        if(Password !== ConfirmPassword){
-            return alert("비밀번호 확인이 다릅니다.")
-        }
+        // if(Password !== ConfirmPassword){
+        //     return alert("비밀번호 확인이 다릅니다.")
+        // }
 
         let body = {
             name: Name,
@@ -97,27 +97,6 @@ function RegisterPage(props) {
     }
 
     return (
-        // <div 
-        //     style={{display: 'flex', justifyContent: 'center', alignItems: 'center', 
-        //     width: '100%', height: '100vh'}}>
-        //     <form onSubmit={onSubmitHandler}
-        //         style={{display: 'flex', flexDirection: 'column'}}>
-        //         <label>Name</label>
-        //         <input type="text" value={Name} onChange={onNameHandler} />
-        //         <label>Last name</label>
-        //         <input type="text" value={Lastname} onChange={onLastnameHandler} />
-        //         <label>Email</label>
-        //         <input type="email" value={Email} onChange={onEmailHandler} />
-        //         <label>Password</label>
-        //         <input type="password" value={Password} onChange={onPasswordHandler} />
-        //         <label>Confirm Password</label>
-        //         <input type="password" value={ConfirmPassword} onChange={onComfirmPasswordHandler} />
-        //         <br/>
-        //         <button>
-        //             Sign up
-        //         </button>
-        //     </form>
-        // </div>
         <div
             style={{display: 'flex', justifyContent: 'center', alignItems: 'center', 
             width: '100%', height: '100vh'}}>
@@ -132,7 +111,6 @@ function RegisterPage(props) {
                 <Form.Item
                     name="email"
                     label="E-mail"
-                    value={Email} onChange={onEmailHandler}
                     rules={[
                     {
                         type: 'email',
@@ -144,13 +122,12 @@ function RegisterPage(props) {
                     },
                     ]}
                 >
-                    <Input />
+                    <Input value={Email} onChange={onEmailHandler}/>
                 </Form.Item>
 
                 <Form.Item
                     name="name"
                     label="Name"
-                    value={Name} onChange={onNameHandler}
                     // tooltip="What do you want others to call you?"
                     rules={[
                     {
@@ -160,13 +137,12 @@ function RegisterPage(props) {
                     },
                     ]}
                 >
-                    <Input />
+                    <Input value={Name} onChange={onNameHandler}/>
                 </Form.Item>
 
                 <Form.Item
                     name="lastname"
                     label="Last name"
-                    value={Lastname} onChange={onLastnameHandler}
                     rules={[
                     {
                         required: false,
@@ -174,35 +150,32 @@ function RegisterPage(props) {
                     },
                     ]}
                 >
-                    <Input />
+                    <Input value={Lastname} onChange={onLastnameHandler}/>
                 </Form.Item>
 
                 <Form.Item
                     name="password"
                     label="Password"
-                    value={Password} onChange={onPasswordHandler}
                     rules={[
                     {
                         required: true,
-                        message: 'Please input your password 8 characters or more',
+                        message: 'Please input your password at least 8 characters',
                         min: 8,
                     },
                     ]}
                     hasFeedback
                 >
-                    <Input.Password />
+                    <Input.Password value={Password} onChange={onPasswordHandler}/>
                 </Form.Item>
 
                 <Form.Item
                     name="confirm"
                     label="Confirm Password"
-                    value={ConfirmPassword} onChange={onComfirmPasswordHandler}
                     dependencies={['password']}
                     hasFeedback
                     rules={[
                     {
                         required: true,
-                        message: 'Please confirm your password correctly',
                         min: 8,
                     },
                     ({ getFieldValue }) => ({
@@ -216,7 +189,7 @@ function RegisterPage(props) {
                     }),
                     ]}
                 >
-                    <Input.Password />
+                    <Input.Password value={ConfirmPassword} onChange={onComfirmPasswordHandler}/>
                 </Form.Item>
 
                 <Form.Item
@@ -236,7 +209,7 @@ function RegisterPage(props) {
                 </Form.Item>
                 <Form.Item {...tailFormItemLayout}>
                     <Button type="primary" htmlType="submit">
-                        Register
+                        Sign Up
                     </Button>
                 </Form.Item>
             </Form>

@@ -3,5 +3,5 @@ const password = require('./hide.json').mongodb_atlas.user_password
 const uri = require('./hide.json').mongodb_atlas.db_uri
 
 module.exports = {
-    mongoURI: `mongodb+srv://${admin}:${password}@${uri}/myFirstDatabase?retryWrites=true&w=majority`
+    mongoURI: `mongodb+srv://${admin}:${password}@${uri}/moviesite?retryWrites=true&w=majority`
 }

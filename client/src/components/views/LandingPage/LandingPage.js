@@ -1,16 +1,18 @@
 import React, { useEffect } from 'react'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
+import { API_URL, API_KEY } from './../../../Config'
 
 import { Button } from 'antd'
 import 'antd/dist/antd.css'
+import { Layout, Menu, Breadcrumb } from 'antd'
 
 function LandingPage() {
 
-    useEffect(() => {
-        axios.get('/api/hello') //get request: 포트가 같아야함
-        .then(response => console.log(response))
-    }, [])
+    // useEffect(() => {
+    //     axios.get('/api/hello') //get request: 포트가 같아야함
+    //     .then(response => console.log(response))
+    // }, [])
 
 
     function onClickHandler() {
@@ -24,16 +26,29 @@ function LandingPage() {
             })
     }
 
+    useEffect(() => {
+        const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=ko&page=1`
+        return () => {
+            fetch(endpoint).then(response => response.json())
+            .then(response => console.log(response))
+        }
+    }, [])
+
+
 
     return (
-        <div 
-            style={{display: 'flex', justifyContent: 'center', alignItems: 'center', 
-            width: '100%', height: '100vh'}}
-        >   
-            <Button onClick={onClickHandler}>로그아웃</Button>
-            <h1>시작 페이지</h1>
+        <div style={{width:'100%', margin:'0'}}>
+            {/* Main Image*/}
+            <div style={{width:'85%', margin:'1rem auto'}}>
+                <h2>Movies by latest</h2>
+                <hr/>
+                {/* Movie Grid Cards */}
+                음..
+            </div>
         </div>
+
     )
 }
 
+//<Button onClick={onClickHandler}>로그아웃</Button>
 export default withRouter(LandingPage)
