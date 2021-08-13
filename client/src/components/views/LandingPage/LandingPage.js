@@ -6,16 +6,11 @@ import { API_URL, API_KEY } from './../../../Config'
 import { Button } from 'antd'
 import 'antd/dist/antd.css'
 import { Layout, Menu, Breadcrumb } from 'antd'
+import { useState } from 'react'
 
 function LandingPage() {
 
-    // useEffect(() => {
-    //     axios.get('/api/hello') //get request: 포트가 같아야함
-    //     .then(response => console.log(response))
-    // }, [])
-
-
-    function onClickHandler() {
+    function onLogoutHandler() { //logout
         axios.get('/api/users/logout')
             .then(response => {
                 if(response.data.success){
@@ -26,13 +21,18 @@ function LandingPage() {
             })
     }
 
+    const [Movies, setMovies] = useState([])
+
     useEffect(() => {
         const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=ko&page=1`
         return () => {
             fetch(endpoint).then(response => response.json())
-            .then(response => console.log(response))
+            .then(response => {
+                console.log(response)
+            })
         }
     }, [])
+
 
 
 
@@ -43,7 +43,8 @@ function LandingPage() {
                 <h2>Movies by latest</h2>
                 <hr/>
                 {/* Movie Grid Cards */}
-                음..
+                
+                <Button>Learn more</Button>
             </div>
         </div>
 
