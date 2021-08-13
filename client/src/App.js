@@ -11,15 +11,11 @@ import NavBar from './components/views/NavBar/NavBar'
 import RegisterPage from './components/views/RegisterPage/RegisterPage'
 import Auth from './hoc/auth'
 
-import { Layout } from 'antd'
-const { Content } = Layout
 
 function App() {
   return (
-    <Layout className="layout">
-      <NavBar />
-      <Content>
         <Router>
+          <NavBar />
           <div>
             <Switch>
               <Route exact path="/" component={Auth(LandingPage, null)} />
@@ -28,8 +24,6 @@ function App() {
             </Switch>
           </div>
         </Router>
-      </Content>
-    </Layout>
 
     
   )
