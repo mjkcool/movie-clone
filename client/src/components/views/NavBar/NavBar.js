@@ -11,12 +11,12 @@ function NavBar() {
     function ToSignUp() { history.push('/register') }
     return (
         <Header className="nav">
-            <div className="logo" onClick={ToMain} style={{cursor:'pointer'}}>MOVIESITE</div>
-            <Menu theme="light" mode="horizontal" style={{float: 'left'}}>
+            <div className="logo" onClick={ToMain} style={{cursor:'pointer', color:'white'}}>MOVIESITE</div>
+            <Menu theme="dark" mode="horizontal" style={{float: 'left'}}>
                 <Menu.Item>Menu1</Menu.Item>
                 <Menu.Item>Menu2</Menu.Item>
             </Menu>
-            <Menu theme="light" mode="horizontal" style={{float: 'right'}}>
+            <Menu theme="dark" mode="horizontal" style={{float: 'right'}}>
                 <Menu.Item onClick={ToSignIn}>Sign In</Menu.Item>
                 <Menu.Item onClick={ToSignUp}>Sign Up</Menu.Item>
             </Menu>
